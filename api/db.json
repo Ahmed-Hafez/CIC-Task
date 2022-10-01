@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "name": "Ahmed",
+      "email": "ahmed@gmail.com",
+      "password": "123"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Mohamed",
+      "salary": "9000",
+      "age": 28
+    },
+    {
+      "id": 2,
+      "name": "Mahmoud",
+      "salary": 20000,
+      "age": 25
+    },
+    {
+      "name": "Ahmed",
+      "salary": 20000,
+      "age": 25,
+      "id": 11
+    },
+    {
+      "name": "Sara",
+      "salary": "30000",
+      "age": "23",
+      "id": 12
+    },
+    {
+      "name": "Hafez",
+      "salary": "40000",
+      "age": "50",
+      "id": 13
+    },
+    {
+      "name": "Basma",
+      "salary": "4000",
+      "age": "22",
+      "id": 14
+    },
+    {
+      "name": "Bassant",
+      "salary": 25000,
+      "age": 24,
+      "id": 15
+    }
+  ]
+}

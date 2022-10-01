@@ -1,1 +1,22 @@
-<p>header works!</p>
+<nav class="navbar bg-light">
+  <div class="container">
+    <a class="navbar-brand">CIC Task</a>
+    <app-login-form *ngIf="!(authService.isLoggedIn$ | async)"></app-login-form>
+    <div
+      style="display: flex; gap: 15px"
+      *ngIf="authService.isLoggedIn$ | async"
+    >
+      <p
+        style="
+          margin: 0;
+          display: flex;
+          align-items: center;
+          font-size: 1.15rem;
+        "
+      >
+        Hello {{ authService.currentUser?.name }}
+      </p>
+      <button class="btn btn-outline-success" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>

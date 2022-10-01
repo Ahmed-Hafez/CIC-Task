@@ -1,0 +1,25 @@
+<p class="title">Employees Table</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employeesList; let i = index">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{employee.name}}</td>
+      <td>{{employee.age}}</td>
+      <td>{{employee.salary | currency }}</td>
+      <td class="actions">
+        <a (click)="openAddEmployeeDialog()">Add</a> |
+        <a (click)="openEditEmployeeDialog(employee)">Edit</a> |
+        <a (click)="openDeleteEmployeeDialog(employee.id!)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
