@@ -7,8 +7,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { AlertModalComponent } from './components/alert-modal/alert-modal.component';
 
-const shared = [
+const sharedModules = [
   MatDialogModule,
   MatProgressBarModule,
   MatFormFieldModule,
@@ -18,9 +19,11 @@ const shared = [
   ReactiveFormsModule,
 ];
 
+const otherSharedParts = [AlertModalComponent];
+
 @NgModule({
-  declarations: [],
-  imports: [CommonModule, ...shared],
-  exports: shared,
+  declarations: [otherSharedParts],
+  imports: [CommonModule, ...sharedModules],
+  exports: [...sharedModules, ...otherSharedParts],
 })
 export class SharedModule {}

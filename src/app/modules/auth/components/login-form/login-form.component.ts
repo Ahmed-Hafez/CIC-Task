@@ -1,3 +1,5 @@
+import { AlertModalComponent } from './../../../shared/components/alert-modal/alert-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from './../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +12,11 @@ import { Component, OnInit } from '@angular/core';
 export class LoginFormComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private dialog: MatDialog
+  ) {
     this.form = this.initializeForm();
   }
 
@@ -26,6 +32,20 @@ export class LoginFormComponent implements OnInit {
   login(): void {
     this.authService
       .login(this.form.value.email, this.form.value.password)
-      .subscribe();
+      .subscribe({
+        error: () => this.openAuthFailedModal(),
+      });
+  }
+
+  openAuthFailedModal(): void {
+    this.dialog.open<AlertModalComponent, { title?: string; message: string }>(
+      AlertModalComponent,
+      {
+        width: '300px',
+        data: {
+          message: 'Invalid email or password',
+        },
+      }
+    );
   }
 }
